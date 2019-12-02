@@ -1,0 +1,306 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "actions": {
+      "Delay": {
+        "inputs": {
+          "interval": {
+            "count": 20,
+            "unit": "Minute"
+          }
+        },
+        "runAfter": {
+          "Send_Text_Message_(SMS)": [
+            "Succeeded"
+          ]
+        },
+        "type": "Wait"
+      },
+      "Delay_2": {
+        "inputs": {
+          "interval": {
+            "count": 5,
+            "unit": "Minute"
+          }
+        },
+        "runAfter": {
+          "Send_Text_Message_(SMS)_2": [
+            "Succeeded"
+          ]
+        },
+        "type": "Wait"
+      },
+      "Delay_3": {
+        "inputs": {
+          "interval": {
+            "count": 5,
+            "unit": "Minute"
+          }
+        },
+        "runAfter": {
+          "Send_Text_Message_(SMS)_3": [
+            "Succeeded"
+          ]
+        },
+        "type": "Wait"
+      },
+      "Delay_4": {
+        "inputs": {
+          "interval": {
+            "count": 4,
+            "unit": "Minute"
+          }
+        },
+        "runAfter": {
+          "Send_Text_Message_(SMS)_4": [
+            "Succeeded"
+          ]
+        },
+        "type": "Wait"
+      },
+      "Delay_5": {
+        "inputs": {
+          "interval": {
+            "count": 1,
+            "unit": "Minute"
+          }
+        },
+        "runAfter": {
+          "Send_Text_Message_(SMS)_5": [
+            "Succeeded"
+          ]
+        },
+        "type": "Wait"
+      },
+      "Delay_6": {
+        "inputs": {
+          "interval": {
+            "count": 5,
+            "unit": "Minute"
+          }
+        },
+        "runAfter": {
+          "Send_Text_Message_(SMS)_6": [
+            "Succeeded"
+          ]
+        },
+        "type": "Wait"
+      },
+      "Delay_7": {
+        "inputs": {
+          "interval": {
+            "count": 4,
+            "unit": "Minute"
+          }
+        },
+        "runAfter": {
+          "Send_Text_Message_(SMS)_7": [
+            "Succeeded"
+          ]
+        },
+        "type": "Wait"
+      },
+      "Send_Text_Message_(SMS)": {
+        "inputs": {
+          "body": {
+            "body": "start the coffee, set out 4 cups",
+            "from": "+15306658616",
+            "to": "+15102297968"
+          },
+          "host": {
+            "connection": {
+              "name": "@parameters('$connections')['twilio']['connectionId']"
+            }
+          },
+          "method": "post",
+          "path": "/Messages.json"
+        },
+        "runAfter": {},
+        "type": "ApiConnection"
+      },
+      "Send_Text_Message_(SMS)_2": {
+        "inputs": {
+          "body": {
+            "body": "pour two cups",
+            "from": "(530) 665-8616",
+            "to": "+15102297968"
+          },
+          "host": {
+            "connection": {
+              "name": "@parameters('$connections')['twilio']['connectionId']"
+            }
+          },
+          "method": "post",
+          "path": "/Messages.json"
+        },
+        "runAfter": {
+          "Delay": [
+            "Succeeded"
+          ]
+        },
+        "type": "ApiConnection"
+      },
+      "Send_Text_Message_(SMS)_3": {
+        "inputs": {
+          "body": {
+            "body": "light the candles",
+            "from": "+15306658616",
+            "to": "+15102297968"
+          },
+          "host": {
+            "connection": {
+              "name": "@parameters('$connections')['twilio']['connectionId']"
+            }
+          },
+          "method": "post",
+          "path": "/Messages.json"
+        },
+        "runAfter": {
+          "Delay_2": [
+            "Succeeded"
+          ]
+        },
+        "type": "ApiConnection"
+      },
+      "Send_Text_Message_(SMS)_4": {
+        "inputs": {
+          "body": {
+            "body": "deliver the coffee to Mom and Dad",
+            "from": "+15306658616",
+            "to": "+15102297968"
+          },
+          "host": {
+            "connection": {
+              "name": "@parameters('$connections')['twilio']['connectionId']"
+            }
+          },
+          "method": "post",
+          "path": "/Messages.json"
+        },
+        "runAfter": {
+          "Delay_3": [
+            "Succeeded"
+          ]
+        },
+        "type": "ApiConnection"
+      },
+      "Send_Text_Message_(SMS)_5": {
+        "inputs": {
+          "body": {
+            "body": "return to kitchen, fill two more cups",
+            "from": "+15306658616",
+            "to": "+15102297968"
+          },
+          "host": {
+            "connection": {
+              "name": "@parameters('$connections')['twilio']['connectionId']"
+            }
+          },
+          "method": "post",
+          "path": "/Messages.json"
+        },
+        "runAfter": {
+          "Delay_4": [
+            "Succeeded"
+          ]
+        },
+        "type": "ApiConnection"
+      },
+      "Send_Text_Message_(SMS)_6": {
+        "inputs": {
+          "body": {
+            "body": "relight the candles",
+            "from": "+15306658616",
+            "to": "+15102297968"
+          },
+          "host": {
+            "connection": {
+              "name": "@parameters('$connections')['twilio']['connectionId']"
+            }
+          },
+          "method": "post",
+          "path": "/Messages.json"
+        },
+        "runAfter": {
+          "Delay_5": [
+            "Succeeded"
+          ]
+        },
+        "type": "ApiConnection"
+      },
+      "Send_Text_Message_(SMS)_7": {
+        "inputs": {
+          "body": {
+            "body": "deliver the coffee to Sister and Brother",
+            "from": "+15306658616",
+            "to": "+15102297968"
+          },
+          "host": {
+            "connection": {
+              "name": "@parameters('$connections')['twilio']['connectionId']"
+            }
+          },
+          "method": "post",
+          "path": "/Messages.json"
+        },
+        "runAfter": {
+          "Delay_6": [
+            "Succeeded"
+          ]
+        },
+        "type": "ApiConnection"
+      },
+      "Send_Text_Message_(SMS)_8": {
+        "inputs": {
+          "body": {
+            "body": "return to kitchen, take a break!",
+            "from": "+15306658616",
+            "to": "+15102297968"
+          },
+          "host": {
+            "connection": {
+              "name": "@parameters('$connections')['twilio']['connectionId']"
+            }
+          },
+          "method": "post",
+          "path": "/Messages.json"
+        },
+        "runAfter": {
+          "Delay_7": [
+            "Succeeded"
+          ]
+        },
+        "type": "ApiConnection"
+      }
+    },
+    "contentVersion": "1.0.0.0",
+    "outputs": {},
+    "parameters": {
+      "$connections": {
+        "defaultValue": {},
+        "type": "Object"
+      }
+    },
+    "triggers": {
+      "manual": {
+        "inputs": {
+          "method": "GET",
+          "schema": {}
+        },
+        "kind": "Http",
+        "type": "Request"
+      }
+    }
+  },
+  "parameters": {
+    "$connections": {
+      "value": {
+        "twilio": {
+          "connectionId": "/subscriptions/fa9f44fc-7ab6-4e12-8239-3e43f993b28c/resourceGroups/sls-wus2-dev-service-25days-of-serverless-rg/providers/Microsoft.Web/connections/twilio",
+          "connectionName": "twilio",
+          "id": "/subscriptions/fa9f44fc-7ab6-4e12-8239-3e43f993b28c/providers/Microsoft.Web/locations/westus2/managedApis/twilio"
+        }
+      }
+    }
+  }
+}
